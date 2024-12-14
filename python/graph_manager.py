@@ -6,6 +6,7 @@ from typing import Dict, List, Tuple, Optional
 from models import ElevationType, TrailType
 from cost_utils import calculate_cost
 from datetime import datetime, timedelta
+import math
 
 class GraphManager:
     CACHE_DURATION = timedelta(hours=24)  # Cache valid for 24 hours
@@ -17,13 +18,8 @@ class GraphManager:
         self.cache_file = cache_file
         
     def _is_cache_valid(self):
-        """Check if cache file exists and is recent enough"""
-        if not os.path.exists(self.cache_file):
-            return False
-            
-        # Check file age
-        file_time = datetime.fromtimestamp(os.path.getmtime(self.cache_file))
-        return datetime.now() - file_time < self.CACHE_DURATION
+        """Check if cache file exists"""
+        return os.path.exists(self.cache_file)
         
     def build_graph(self, cur) -> None:
         """Build graph from database edges and cache it"""
@@ -75,22 +71,52 @@ class GraphManager:
         self.graph_built = True
     
     def find_exploration_path(self, 
-                            cur,  # Pass cursor instead of using stored connection
+                            cur,
                             start_vertex: int, 
                             desired_length: float,
                             cost_weights: Dict[str, float],
-                            tolerance: float = 0.1) -> Dict:
+                            tolerance: float,
+                            avoid_vertices: List[int],
+                            elevation_type: ElevationType,
+                            prefer_hard_surface: bool,
+                            preferred_trail_type: TrailType) -> Dict:
         """Find path that meets length criteria with lowest cost"""
         
         min_length = desired_length * (1 - tolerance)
         max_length = desired_length * (1 + tolerance)
         
         def cost_function(u, v, d):
-            return (
-                cost_weights['elevation'] * self._calculate_elevation_cost(d) +
-                cost_weights['surface'] * self._calculate_surface_cost(d) +
-                cost_weights['trail'] * self._calculate_trail_cost(d)
+            # Calculate individual costs
+            elevation_cost = self._calculate_elevation_cost(d, elevation_type)
+            surface_cost = self._calculate_surface_cost({'surface': d.get('surface'), 
+                                                       'prefer_hard_surface': prefer_hard_surface})
+            trail_cost = self._calculate_trail_cost({'trail_type': d.get('trail_type'), 
+                                                       'preferred_trail_type': preferred_trail_type})
+            
+            # Calculate weighted sum
+            weighted_cost = (
+                cost_weights.get('elevation', 1.0) * elevation_cost +
+                cost_weights.get('surface', 0.0) * surface_cost +
+                cost_weights.get('trail', 0.0) * trail_cost
             )
+            
+            # Apply avoidance penalty if needed
+            if avoid_vertices and (u in avoid_vertices or v in avoid_vertices):
+                weighted_cost *= 10
+            
+            # Log detailed cost breakdown
+            print(f"\nExplore Edge {u}->{v}:")
+            print(f"  Optimization type: {elevation_type.name}")
+            print(f"  Elevation diff: {d.get('elevation_diff', 0)}")
+            print(f"  Surface type: {d.get('surface')}")
+            print(f"  Trail type: {d.get('trail_type')}")
+            print(f"  Costs:")
+            print(f"    Elevation: {elevation_cost} (weight: {cost_weights.get('elevation', 1.0)})")
+            print(f"    Surface: {surface_cost} (weight: {cost_weights.get('surface', 0.0)})")
+            print(f"    Trail: {trail_cost} (weight: {cost_weights.get('trail', 0.0)})")
+            print(f"    Final weighted cost: {weighted_cost}")
+            
+            return max(0.000001, weighted_cost)
         
         # Use ego_graph to get subgraph within max_length distance
         subgraph = nx.ego_graph(
@@ -135,15 +161,30 @@ class GraphManager:
             for u, v in zip(path[:-1], path[1:])
         )
     
-    def _calculate_elevation_cost(self, edge_data: Dict) -> float:
-        """Calculate elevation-based cost similar to SQL implementation"""
+    def _calculate_elevation_cost(self, edge_data: Dict, elevation_type: ElevationType = ElevationType.ELEVATION_GAIN) -> float:
+        """Calculate elevation-based cost based on preference type using logistic functions"""
         elevation_diff = edge_data.get('elevation_diff', 0)
+        sensitivity = 5  # sensitivity factor s from the formulas
         
         if elevation_diff == 0:
             return 0.5
         
-        # Sigmoid-like function similar to SQL implementation
-        return 1.0 / (1.0 + np.exp(elevation_diff / self.ELEVATION_SENSITIVITY))
+        if elevation_type == ElevationType.ELEVATION_GAIN:
+            # Cost approaches 0 for uphill (positive elevation_diff)
+            # Cost approaches 1 for downhill (negative elevation_diff)
+            return 1 / (1 + math.exp(elevation_diff/sensitivity))
+        
+        elif elevation_type == ElevationType.ELEVATION_LOSS:
+            # Inverted logistic function
+            # Cost approaches 0 for downhill (negative elevation_diff)
+            # Cost approaches 1 for uphill (positive elevation_diff)
+            return 1 / (1 + math.exp(-elevation_diff/sensitivity))
+        
+        else:  # ElevationType.ELEVATION_LEVEL
+            # Exponential decay function
+            # Cost approaches 0 for flat segments
+            # Cost approaches 1 for large elevation differences
+            return 1 - math.exp(-abs(elevation_diff)/sensitivity)
     
     def _calculate_surface_cost(self, edge_data: Dict) -> float:
         """Calculate surface-based cost"""
@@ -178,12 +219,40 @@ class GraphManager:
                            start_vertex: int,
                            target_vertex: int,
                            cost_weights: Dict[str, float],
-                           search_radius: float = 20000,
-                           **kwargs) -> Dict:
+                           search_radius: float,
+                           elevation_type: ElevationType,
+                           prefer_hard_surface: bool,
+                           preferred_trail_type: TrailType) -> Dict:
         """Find shortest path between two vertices using custom cost function"""
         
         def cost_function(u, v, d):
-            return calculate_cost(u, v, d, cost_weights)
+            # Calculate individual costs
+            elevation_cost = self._calculate_elevation_cost(d, elevation_type)
+            surface_cost = self._calculate_surface_cost({'surface': d.get('surface'), 
+                                                       'prefer_hard_surface': prefer_hard_surface})
+            trail_cost = self._calculate_trail_cost({'trail_type': d.get('trail_type'), 
+                                                   'preferred_trail_type': preferred_trail_type})
+            
+            # Calculate weighted sum
+            weighted_cost = (
+                cost_weights.get('elevation', 1.0) * elevation_cost +
+                cost_weights.get('surface', 0.0) * surface_cost +
+                cost_weights.get('trail', 0.0) * trail_cost
+            )
+            
+            # Log detailed cost breakdown
+            print(f"\nBounce Edge {u}->{v}:")
+            print(f"  Optimization type: {elevation_type.name}")
+            print(f"  Elevation diff: {d.get('elevation_diff', 0)}")
+            print(f"  Surface type: {d.get('surface')}")
+            print(f"  Trail type: {d.get('trail_type')}")
+            print(f"  Costs:")
+            print(f"    Elevation: {elevation_cost} (weight: {cost_weights.get('elevation', 1.0)})")
+            print(f"    Surface: {surface_cost} (weight: {cost_weights.get('surface', 0.0)})")
+            print(f"    Trail: {trail_cost} (weight: {cost_weights.get('trail', 0.0)})")
+            print(f"    Final weighted cost: {weighted_cost}")
+            
+            return max(0.000001, weighted_cost)
         
         # Create subgraph within search radius around both vertices
         subgraph = nx.ego_graph(
