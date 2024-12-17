@@ -1,0 +1,91 @@
+Route Length Test Results
+Generated on: 2024-12-17T13:05:38.599631
+Total routes generated: 992
+Routes per combination: 100
+
+
+Results for RIGI:
+==================================================
+
+Desired length: 1000m
+Number of routes: 93
+Actual length: 1630.47 ± 524.03m
+Length difference: 630.47 ± 524.03m
+Length difference: 63.0% ± 52.4%
+Request duration: 2.71 ± 0.39s
+--------------------------------------------------
+
+Desired length: 5000m
+Number of routes: 100
+Actual length: 6964.27 ± 1460.70m
+Length difference: 1964.27 ± 1460.70m
+Length difference: 39.3% ± 29.2%
+Request duration: 3.15 ± 0.37s
+--------------------------------------------------
+
+Desired length: 10000m
+Number of routes: 100
+Actual length: 11314.15 ± 1655.18m
+Length difference: 1314.15 ± 1655.18m
+Length difference: 13.1% ± 16.6%
+Request duration: 3.96 ± 0.81s
+--------------------------------------------------
+
+Desired length: 15000m
+Number of routes: 100
+Actual length: 15889.53 ± 1790.80m
+Length difference: 889.53 ± 1790.80m
+Length difference: 5.9% ± 11.9%
+Request duration: 4.49 ± 0.58s
+--------------------------------------------------
+
+Desired length: 20000m
+Number of routes: 99
+Actual length: 20769.52 ± 2085.16m
+Length difference: 769.52 ± 2085.16m
+Length difference: 3.8% ± 10.4%
+Request duration: 5.41 ± 0.87s
+--------------------------------------------------
+
+Results for BERN:
+==================================================
+
+Desired length: 1000m
+Number of routes: 100
+Actual length: 2242.81 ± 750.14m
+Length difference: 1242.81 ± 750.14m
+Length difference: 124.3% ± 75.0%
+Request duration: 3.13 ± 0.37s
+--------------------------------------------------
+
+Desired length: 5000m
+Number of routes: 100
+Actual length: 6291.80 ± 932.37m
+Length difference: 1291.80 ± 932.37m
+Length difference: 25.8% ± 18.6%
+Request duration: 3.52 ± 0.41s
+--------------------------------------------------
+
+Desired length: 10000m
+Number of routes: 100
+Actual length: 10718.16 ± 1088.85m
+Length difference: 718.16 ± 1088.85m
+Length difference: 7.2% ± 10.9%
+Request duration: 4.21 ± 1.07s
+--------------------------------------------------
+
+Desired length: 15000m
+Number of routes: 100
+Actual length: 15600.81 ± 1435.89m
+Length difference: 600.81 ± 1435.89m
+Length difference: 4.0% ± 9.6%
+Request duration: 4.70 ± 0.44s
+--------------------------------------------------
+
+Desired length: 20000m
+Number of routes: 100
+Actual length: 20477.77 ± 2049.25m
+Length difference: 477.77 ± 2049.25m
+Length difference: 2.4% ± 10.2%
+Request duration: 5.44 ± 0.70s
+--------------------------------------------------

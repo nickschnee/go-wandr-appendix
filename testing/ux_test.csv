@@ -1,0 +1,31 @@
+Zeitstempel,Die Funktionen von Go Wandr erfüllen meine Anforderungen.,Die Nutzung von Go Wandr ist eine frustrierende Erfahrung.,Go Wandr ist einfach zu bedienen.,"Ich muss viel Zeit aufwenden, um Fehler von Go Wandr zu korrigieren.",Ich habe mindestens eine Wanderung mit Go Wandr generiert.,Ich werde Go Wandr in Zukunft für die Planung meiner Wanderungen nutzen.,Weitere Anmerkungen / Feedback
+12.12.2024 11:59:58,7,1,6,3,Ja,4,
+12.12.2024 12:17:38,6,1,5,4,Ja,5,Aufgrund der bisher wenigen Anwendungen meinerseits kann ich kein verfeinertes Feedback abgeben.
+12.12.2024 17:51:24,3,3,7,4,Ja,2,"Es wäre schön wenn eine Auswahl von Wanderungen gezeigt würde, nicht nur eine. Die Grundidee ist aber wunderbar."
+12.12.2024 20:08:23,4,2,7,3,Ja,2,
+12.12.2024 20:37:18,6,2,7,1,Ja,5,
+12.12.2024 22:36:35,7,1,6,1,Ja,5,
+13.12.2024 08:44:45,5,2,6,2,Ja,5,
+13.12.2024 10:24:38,3,4,5,4,Ja,5,"Ich würde mich über mehrere Ergebnisse pro Suchanfrage freuen. Ich glaube die App eignet sich gut für Inspiration, aber die eigentliche Wanderung würde ich dann bei Swisstopo planen, damit ich zB auch das Höhenprofil sehen kann"
+13.12.2024 10:43:24,2,5,6,5,Ja,2,"– Grundsätzlich gute Idee
+– Wird es Möglichkeit geben, um Route anzupassen?
+– Route führt teilweise in eine Richtung, kehrt dann aber um, sodass man wieder am Ausgangspunkt landet
+– Bei mehrmaligem Klick auf ""Alternative Route mit gleichen Einstellungen"" landet man irgendwann Kilometer weit weg von Ausganspunkt weg (Ausganspunkt: Bern (20km Reichweite), am Ende war der Ausgangspunkt in Lausanne)
+– Nach aktuellem Stand würde ich App nicht gebrauchen, da Routen etwas zufällig erscheinen (gäbe genügend Wanderungen in der Region, aber nur wenige werden angezeigt); natürlich fehlt auch noch Exportmöglichkeiten"
+13.12.2024 15:36:13,4,2,6,2,Ja,5,
+13.12.2024 16:54:50,5,2,6,3,Ja,5,
+13.12.2024 17:18:21,7,1,7,1,Ja,6,"Sehr einfache Bedienung, rasche Antworten Werde ich sicherlich gelegentlich nutzen. Die Tauglichkeit der Vorschläge müsste ich noch in der Umsetzung prüfen."
+15.12.2024 10:31:21,3,2,7,5,Ja,3,"Hat meinen Standort nicht richtig erkannt, ich musste diesen jedes Mal korrigieren. ;)"
+15.12.2024 11:40:36,5,5,6,4,Ja,2,"Super Funktion wäre, dass ich eine Rundtour machen könnte sodass Start und Ziel mein gewählter Standort sind."
+15.12.2024 16:48:29,5,3,5,4,Ja,5,"Bei Wanderung ""Aufstieg"" gewählt, zeigt es mir um die Stadt Bern Wanderungen mit 100–200m Aufstieg an. Hier wäre vielleicht eine Anzahl Mindest- und Maximal-Höhenmeter hilreich?"
+17.12.2024 11:58:52,6,2,6,3,Ja,6,"Inhaltliches Feedback
+- finde ich super um neue spaziergang-ideen mit dem hund zu haben. werde ich sicher mal ausprobieren, die letzte wanderung die es mir generiert hat tönt noch nice ;) 
+
+UX- und Technisches Feedback
+-> etwas nervig war, dass es mir den gesetzten startpunkt immer verschoben hat, als ich das zoom level der karte verstellt habe, um den gesamten radius zu sehen... musste den startpunkt 3 mal neu setzen, was etwas unpraktisch war
+-> meine erste wanderung war basically nur hauptstrasse (richtig grosse, grüsige hauptstrasse). weiss nicht ob du da was machen kannst, aber vielleicht kannst du so gut wie möglich grosse strassen ausschliessen. die alternativroute war nachher aber perfekt ;) 
+-> pointer event auf favorit-setzen-button  & evtl optisch noch als button erkenntlich machen. hab nicht ganz gecheckt dass ich da drauf klicken kann
+-> auf home zuunterst noch einen padding-bottom geben, ich habe aktuell 2 wanderungen und wegen dem floating button unten kann ich die zweite nicht ganz anschauen da der button im weg ist
+-> evtl noch irgendwo kennzeichnen, was die roten und die grünen linien auf der karte aussagen (vermutlich kennzeichnet das ob abstieg oder aufstieg, bin aber auch nicht ganz sicher) "
+17.12.2024 12:22:48,3,5,4,4,Ja,3,Die Fahrzeiten von Kreuzlingen sind nicht korrekt. In 60 Minuten komme ich problemlos bis Winterthur
+17.12.2024 12:53:57,4,2,5,3,Ja,3,
