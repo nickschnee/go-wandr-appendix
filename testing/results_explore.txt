@@ -1,0 +1,207 @@
+Route Generation Test Results
+Generated on: 2024-12-16T16:38:15.555631
+Total routes generated: 1400
+Routes per combination: 100
+
+
+Results for RIGI:
+==================================================
+
+GAIN optimization:
+Number of routes: 100
+Elevation difference: 381.52 ± 508.29m
+Elevation gain: 776.73 ± 328.22m
+Elevation loss: 394.88 ± 377.79m
+Distance: 7467.47 ± 1476.72m
+Hard surface: 30.91 ± 17.51%
+Natural surface: 69.09 ± 17.51%
+Hiking trail: 40.42 ± 19.33%
+Mountain trail: 26.17 ± 17.60%
+Street: 33.40 ± 13.78%
+Request duration: 3.21 ± 0.34s
+--------------------------------------------------
+
+LOSS optimization:
+Number of routes: 100
+Elevation difference: -62.88 ± 460.66m
+Elevation gain: 376.17 ± 304.91m
+Elevation loss: 438.95 ± 241.70m
+Distance: 6161.84 ± 1108.25m
+Hard surface: 46.57 ± 21.79%
+Natural surface: 53.43 ± 21.79%
+Hiking trail: 44.95 ± 29.80%
+Mountain trail: 32.49 ± 26.44%
+Street: 22.56 ± 12.39%
+Request duration: 3.14 ± 0.38s
+--------------------------------------------------
+
+LEVEL optimization:
+Number of routes: 100
+Elevation difference: 131.94 ± 494.91m
+Elevation gain: 454.32 ± 385.76m
+Elevation loss: 322.47 ± 234.01m
+Distance: 6642.24 ± 1736.10m
+Hard surface: 46.93 ± 20.36%
+Natural surface: 53.07 ± 20.36%
+Hiking trail: 45.50 ± 29.39%
+Mountain trail: 29.66 ± 27.91%
+Street: 24.84 ± 15.71%
+Request duration: 3.35 ± 0.41s
+--------------------------------------------------
+
+HARD optimization:
+Number of routes: 100
+Elevation difference: 13.91 ± 270.85m
+Elevation gain: 292.17 ± 172.58m
+Elevation loss: 278.05 ± 212.56m
+Distance: 5963.86 ± 1079.02m
+Hard surface: 79.19 ± 21.65%
+Natural surface: 20.81 ± 21.65%
+Hiking trail: 69.49 ± 24.08%
+Mountain trail: 10.68 ± 17.69%
+Street: 19.83 ± 12.90%
+Request duration: 3.54 ± 0.61s
+--------------------------------------------------
+
+NATURAL optimization:
+Number of routes: 100
+Elevation difference: 212.59 ± 490.56m
+Elevation gain: 626.43 ± 331.90m
+Elevation loss: 413.77 ± 284.14m
+Distance: 7223.80 ± 1546.78m
+Hard surface: 26.85 ± 13.01%
+Natural surface: 73.15 ± 13.01%
+Hiking trail: 33.22 ± 25.14%
+Mountain trail: 34.96 ± 26.33%
+Street: 31.83 ± 15.02%
+Request duration: 3.37 ± 0.53s
+--------------------------------------------------
+
+HIKING optimization:
+Number of routes: 100
+Elevation difference: 12.88 ± 275.37m
+Elevation gain: 303.08 ± 199.01m
+Elevation loss: 290.15 ± 202.71m
+Distance: 6209.14 ± 1130.30m
+Hard surface: 56.54 ± 29.13%
+Natural surface: 43.46 ± 29.13%
+Hiking trail: 72.86 ± 16.13%
+Mountain trail: 4.34 ± 10.03%
+Street: 22.80 ± 12.45%
+Request duration: 3.21 ± 0.48s
+--------------------------------------------------
+
+MOUNTAIN optimization:
+Number of routes: 100
+Elevation difference: 286.96 ± 539.22m
+Elevation gain: 673.31 ± 330.77m
+Elevation loss: 386.28 ± 283.25m
+Distance: 7053.00 ± 1433.15m
+Hard surface: 34.38 ± 17.04%
+Natural surface: 65.62 ± 17.04%
+Hiking trail: 30.48 ± 20.46%
+Mountain trail: 39.98 ± 22.33%
+Street: 29.55 ± 14.03%
+Request duration: 3.18 ± 0.33s
+--------------------------------------------------
+
+Results for BERN:
+==================================================
+
+GAIN optimization:
+Number of routes: 100
+Elevation difference: 6.90 ± 61.82m
+Elevation gain: 128.22 ± 87.47m
+Elevation loss: 121.39 ± 62.58m
+Distance: 6193.38 ± 783.11m
+Hard surface: 42.18 ± 18.07%
+Natural surface: 57.82 ± 18.07%
+Hiking trail: 76.72 ± 8.89%
+Mountain trail: 0.00 ± 0.00%
+Street: 23.28 ± 8.89%
+Request duration: 3.53 ± 0.39s
+--------------------------------------------------
+
+LOSS optimization:
+Number of routes: 100
+Elevation difference: -12.73 ± 55.84m
+Elevation gain: 107.86 ± 70.06m
+Elevation loss: 120.59 ± 65.55m
+Distance: 6240.64 ± 1182.46m
+Hard surface: 45.15 ± 16.89%
+Natural surface: 54.85 ± 16.89%
+Hiking trail: 77.56 ± 11.31%
+Mountain trail: 0.00 ± 0.00%
+Street: 22.44 ± 11.31%
+Request duration: 3.57 ± 0.38s
+--------------------------------------------------
+
+LEVEL optimization:
+Number of routes: 100
+Elevation difference: -3.00 ± 39.86m
+Elevation gain: 88.53 ± 61.14m
+Elevation loss: 91.57 ± 42.71m
+Distance: 6077.26 ± 999.32m
+Hard surface: 52.07 ± 20.73%
+Natural surface: 47.93 ± 20.73%
+Hiking trail: 78.60 ± 10.98%
+Mountain trail: 0.00 ± 0.00%
+Street: 21.40 ± 10.98%
+Request duration: 3.62 ± 0.44s
+--------------------------------------------------
+
+HARD optimization:
+Number of routes: 100
+Elevation difference: 9.54 ± 66.09m
+Elevation gain: 109.86 ± 53.23m
+Elevation loss: 100.33 ± 52.48m
+Distance: 5601.91 ± 639.91m
+Hard surface: 79.45 ± 18.30%
+Natural surface: 20.55 ± 18.30%
+Hiking trail: 83.49 ± 8.87%
+Mountain trail: 0.00 ± 0.00%
+Street: 16.51 ± 8.87%
+Request duration: 3.66 ± 0.51s
+--------------------------------------------------
+
+NATURAL optimization:
+Number of routes: 100
+Elevation difference: -4.12 ± 54.34m
+Elevation gain: 124.20 ± 83.85m
+Elevation loss: 128.33 ± 68.65m
+Distance: 6333.55 ± 809.64m
+Hard surface: 34.09 ± 14.11%
+Natural surface: 65.91 ± 14.11%
+Hiking trail: 75.20 ± 8.92%
+Mountain trail: 0.00 ± 0.00%
+Street: 24.80 ± 8.92%
+Request duration: 3.65 ± 0.35s
+--------------------------------------------------
+
+HIKING optimization:
+Number of routes: 100
+Elevation difference: 7.02 ± 61.57m
+Elevation gain: 133.12 ± 90.56m
+Elevation loss: 126.28 ± 72.53m
+Distance: 6176.37 ± 744.44m
+Hard surface: 44.29 ± 18.63%
+Natural surface: 55.71 ± 18.63%
+Hiking trail: 77.06 ± 8.75%
+Mountain trail: 0.00 ± 0.00%
+Street: 22.94 ± 8.75%
+Request duration: 3.74 ± 0.55s
+--------------------------------------------------
+
+MOUNTAIN optimization:
+Number of routes: 100
+Elevation difference: 9.35 ± 61.69m
+Elevation gain: 116.29 ± 81.17m
+Elevation loss: 107.06 ± 58.43m
+Distance: 6147.88 ± 851.22m
+Hard surface: 42.37 ± 16.62%
+Natural surface: 57.63 ± 16.62%
+Hiking trail: 77.48 ± 9.41%
+Mountain trail: 0.00 ± 0.00%
+Street: 22.52 ± 9.41%
+Request duration: 3.65 ± 0.53s
+--------------------------------------------------
